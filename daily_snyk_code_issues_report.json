@@ -1,0 +1,71 @@
+[
+    {
+        "issue_id": "2c48deeb-8c07-4551-b71f-cb6594ec76fe",
+        "organization_id": "c0aa30b3-2123-46f3-8171-1c2953485c32",
+        "project_id": "2fb26269-002d-41d9-a156-b295d6c620f5",
+        "organization_name": "backend",
+        "project_name": "Sameer515/snyk-goof-github-actions(master)",
+        "issue_title": "SQL Injection",
+        "severity": "HIGH",
+        "created_at": "2025-08-20T11:04:44.13Z",
+        "details": {
+            "classes": [
+                {
+                    "id": "CWE-89",
+                    "source": "CWE",
+                    "type": "weakness"
+                }
+            ],
+            "coordinates": [
+                {
+                    "is_fixable_manually": false,
+                    "is_fixable_snyk": false,
+                    "is_fixable_upstream": false,
+                    "representations": [
+                        {
+                            "sourceLocation": {
+                                "commit_id": "f37670d5cc3da0ea7efb6d89ab08741cdb817b4f",
+                                "file": "routes/index.js",
+                                "region": {
+                                    "end": {
+                                        "column": 9,
+                                        "line": 238
+                                    },
+                                    "start": {
+                                        "column": 6,
+                                        "line": 238
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2025-08-20T11:04:44.13Z",
+            "description": "SQL Injection",
+            "effective_severity_level": "high",
+            "ignored": false,
+            "key": "18afa99a-5127-450a-b717-6384d07c3cfe",
+            "key_asset": "c511d30c-16b7-4c1c-ad98-0e037835b2ea",
+            "problems": [
+                {
+                    "id": "18afa99a-5127-450a-b717-6384d07c3cfe",
+                    "source": "SNYK",
+                    "type": "vulnerability",
+                    "updated_at": "2025-08-20T11:04:46.010299Z"
+                }
+            ],
+            "risk": {
+                "factors": [],
+                "score": {
+                    "model": "v1",
+                    "value": 813
+                }
+            },
+            "status": "open",
+            "title": "SQL Injection",
+            "type": "code",
+            "updated_at": "2025-08-20T11:04:44.13Z"
+        }
+    }
+]
