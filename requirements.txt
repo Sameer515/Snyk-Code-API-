@@ -1,0 +1,12 @@
+# Core dependencies for Snyk Code Issues Reporter
+# HTTP requests library for API calls
+requests>=2.32.0,<3.0.0
+
+# Date parsing utilities
+python-dateutil>=2.8.0,<3.0.0
+
+# URL parsing utilities (built-in, but listed for clarity)
+# urllib3 is included with requests
+
+# Security note: These versions are chosen to avoid known vulnerabilities
+# Update regularly and run security scans
