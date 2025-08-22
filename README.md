@@ -51,3 +51,43 @@ Open your terminal in the same directory where you saved the script and install 
 
 ```shell
 pip3 install requests python-dateutil# Snyk-Code-API-
+
+
+# Daily Snyk Code Issues Check
+
+> A Python script that maintains a local database of Snyk Code issues and generates reports on new vulnerabilities discovered since a specific date.
+
+This tool provides a persistent and efficient way to monitor Snyk Code findings. It syncs with the Snyk API to keep a local JSON database up-to-date and then allows you to query that database for issues created after a date you specify.
+
+---
+
+## ⚙️ How It Works
+
+The script operates in three main phases on every run:
+
+1.  **Credential Validation (Two-Step)**:
+    * **Token Check**: It first makes a call to the Snyk API (`/v1/user/me`) to verify that the provided **API Token is valid** and active.
+    * **Group Check**: If the token is valid, it then makes a second call (`/rest/groups`) to verify that the token has permission to access the specified **Group ID**. If the ID is wrong, it will list the correct ones available to you.
+
+2.  **Database Synchronization**:
+    * If credentials are valid, the script loads its local issue database, **`snyk_code_issues_db.json`**.
+    * **Conditional Sync**: If the database was already updated today, the script will ask if you want to sync again.
+    * **Efficient Fetching**: If syncing proceeds, it efficiently asks the Snyk API only for issues created *after* the most recently found issue.
+
+3.  **Report Generation**:
+    * After the database is synced, the script prompts for a date to search for new SAST issues from (defaults to today).
+    * **Conditional Reporting**: If new issues are found, the results are saved to **`daily_snyk_code_issues_report.json`**. If zero new issues are found, no report file is created.
+
+---
+
+## 🚀 How to Use
+
+### Step 1: Set Environment Variables (Recommended)
+
+For the most secure and convenient setup, set your Snyk credentials as environment variables. On macOS or Linux, add these lines to your `~/.zshrc` or `~/.bash_profile`.
+
+```shell
+export SNYK_TOKEN="your-snyk-api-token-goes-here"
+export SNYK_GROUP_ID="your-snyk-group-id-goes-here"
+# Optional: Set for non-US regions (e.g., [https://api.eu.snyk.io](https://api.eu.snyk.io))
+# export SNYK_API_URL="your-region-specific-api-url"
